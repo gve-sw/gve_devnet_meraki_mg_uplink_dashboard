@@ -1,0 +1,103 @@
+{
+    "type": "AdaptiveCard",
+    "body": [
+        {
+            "type": "ColumnSet",
+            "id": "headline",
+            "columns": [
+                {
+                    "type": "Column",
+                    "width": "stretch",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "weight": "Bolder",
+                            "text": "Meraki MG Status Alerts",
+                            "wrap": true,
+                            "color": "Light",
+                            "size": "Large",
+                            "spacing": "Small"
+                        }
+                    ]
+                }
+            ],
+            "horizontalAlignment": "Right"
+        },
+        {
+            "type": "ColumnSet",
+            "id": "date",
+            "columns": [
+                {
+                    "type": "Column",
+                    "width": 35,
+                    "items": [
+                        {
+                            "type": "ColumnSet",
+                            "columns": [
+                                {
+                                    "type": "Column",
+                                    "width": "stretch",
+                                    "items": [
+                                        {
+                                            "type": "TextBlock",
+                                            "text": "Status Date:",
+                                            "color": "Light"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Column",
+                                    "width": "stretch",
+                                    "items": [
+                                        {
+                                            "type": "TextBlock",
+                                            "text": "Aug 6, 2019",
+                                            "color": "Light"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "spacing": "Padding",
+            "horizontalAlignment": "Center"
+        },
+        {
+            "type": "TextBlock",
+            "id": "headline_no_signal",
+            "text": "Devices Without Signal:",
+            "weight": "Bolder",
+            "wrap": true
+        },
+        {
+            "type": "RichTextBlock",
+            "inlines": [
+                {
+                    "type": "TextRun",
+                    "text": "New RichTextBlock"
+                }
+            ],
+            "id": "no_signal"
+        },
+        {
+            "type": "TextBlock",
+            "text": "Devices Without Address:",
+            "weight": "Bolder",
+            "wrap": true
+        },
+        {
+            "type": "RichTextBlock",
+            "inlines": [
+                {
+                    "type": "TextRun",
+                    "text": "New RichTextBlock"
+                }
+            ],
+            "id": "no_address"
+        }
+    ],
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.2"
+}

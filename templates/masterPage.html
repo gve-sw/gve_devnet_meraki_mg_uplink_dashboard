@@ -1,0 +1,134 @@
+<!-- Copyright (c) 2022 Cisco and/or its affiliates.
+This software is licensed to you under the terms of the Cisco Sample
+Code License, Version 1.1 (the "License"). You may obtain a copy of the
+License at
+           https://developer.cisco.com/docs/licenses
+All use of the material herein must be in accordance with the terms of
+the License. All rights not expressly granted by the License are
+reserved. Unless required by applicable law or agreed to separately in
+writing, software distributed under the License is distributed on an "AS
+IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+or implied. -->
+
+<!doctype html>
+<html id="styleguide" class="" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Meraki MG Dashboard</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mui-variables.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cui-standard.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mui-standard.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/customStyles.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='images/meraki_icon_small.png') }}">
+
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"
+        integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0=" crossorigin="anonymous"></script>
+
+    <script src="{{ url_for('static', filename='js/styleguide.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/selects.js') }}"></script>
+
+    <!--Map - leaflet.js files-->
+    <link rel="stylesheet" href="https://d19vzq90twjlae.cloudfront.net/leaflet-0.7.3/leaflet.css" />
+    <script src="https://d19vzq90twjlae.cloudfront.net/leaflet-0.7.3/leaflet.js"></script>
+
+    <!--chart.js files-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+    <script src="{{ url_for('static', filename='js/timeline.js') }}"></script>
+
+</head>
+
+<body class="cui">
+
+    <!-- Header -->
+    <nav class="header" id="styleguideheader" role="navigation">
+        <div class="container-fluid">
+            <div class="header-panels">
+
+                <!--Logo and title area (left)-->
+                <div class="header-panel">
+          
+                    <a class="header-bar__logo header__logo" href="https://gve-devnet.cisco.com/" target="_blank">
+                        <span id="header-logo" class="icon-cisco"></span>
+                    </a>
+                      
+                    <h1 class="header__title">Meraki MG Uplink Dashboard</h1>
+                </div>
+
+                <!--Center area (middle)-->
+                <div class="header-panel header-panel--center">
+
+                </div>
+
+                <!--Link area (right)-->
+                <div class="header-panel header-panel--right">
+                    {% if hiddenLinks == True %}
+                    <form id="orga_picker" action="/" method="POST">
+                        
+                        <!--Orga Picker-->
+                        <div class="form-group base-margin-bottom base-margin-top">
+                            <div class="form-group__text select">
+                                <select name="organizations_select" id='organizations_select' required>
+                                    <option disabled selected hidden value="0">Please choose an organization...</option>
+                                    {% for orga in dropdown_content %}<option value="{{orga.id}}" {% if
+                                        selected_orga_id==orga.id %} selected {% endif %}>{{orga.name}} (ID:{{orga.id}})
+                                    </option>{% endfor %}
+                                </select>
+                            </div>
+                        </div>
+
+                    </form>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!--Content-->
+    <div class="content content--alt">
+        <div class="container-fluid no-padding">
+
+            {% block content %}
+
+            {% endblock %}
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__links">
+            <ul class="list list--inline">
+
+                <li><a href="https://gve-devnet.cisco.com/"><img id="footer-link-gve-devnet"
+                            src="{{ url_for('static', filename='images/Logo_long_green.png')}}"></a></li>
+                <li><a href="https://account.meraki.com/secure/login/dashboard_login"><img id="footer-link-meraki"
+                            src="{{ url_for('static',filename='images/cisco-meraki-logo.webp') }}"></a></li>
+
+                <li><a href="http://www.cisco.com/cisco/web/siteassets/contacts/index.html" target="_blank">Contacts</a>
+                </li>
+                <li><a href="https://secure.opinionlab.com/ccc01/o.asp?id=jBjOhqOJ" target="_blank">Feedback</a></li>
+                <li><a href="https://www.cisco.com/c/en/us/about/help.html" target="_blank">Help</a></li>
+                <li><a href="https://www.cisco.com/c/en/us/about/legal/terms-conditions.html" target="_blank">Terms &
+                        Conditions</a></li>
+                </li>
+                <li><a href="https://www.cisco.com/c/en/us/about/legal/privacy-full.html" target="_blank">Privacy
+                        Statement</a></li>
+                <li><a href="https://www.cisco.com/c/en/us/about/legal/privacy-full.html#cookies" target="_blank">Cookie
+                        Policy</a></li>
+                <li><a href="https://www.cisco.com/c/en/us/about/legal/trademarks.html" target="_blank">Trademarks</a>
+                </li>
+
+            </ul>
+        </div>
+    </footer>
+
+</body>
+
+</html>
