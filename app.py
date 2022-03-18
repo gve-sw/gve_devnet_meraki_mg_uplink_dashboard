@@ -265,7 +265,7 @@ def dashboard():
             orga_id = request.form.get("organizations_select")
             return redirect("/?orga_id="+str(orga_id))
 
-        if orga_id != '':
+        if orga_id != None:
             devices = create_map_marker_json(orga_id)
 
             device_features = devices['features']
